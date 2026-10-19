@@ -6,26 +6,36 @@ corner_round = 8;
 d_screw_m4 = 4.5;
 thickness_holder = 4;
 append = 15;
+w_grip = 30;
 
 // holder_set();
 // horizontal_block(20);
 // vertical_block(len_phone);
-
-color("red")
-translate([0, 0, 30/2])
-cube([30, 30, 2*thickness_phone], center=true);
 grip();
 
-module grip() {
+module grip(){
+    difference(){
+        grip_base();
+
+        color("red")
+        translate([0, w_grip/2, thickness_phone])
+        cube([w_grip+1, w_grip, 2*thickness_phone], center=true);
+        
+        translate ([0, -w_grip/4, 0])
+        cylinder(d=d_screw_m4, 3*thickness_phone, center=true, $fn=32);
+    }
+}
+
+module grip_base() {
     hull() {
-        translate([30/2-corner_round/2, -30/2+corner_round/2, 0])
-            cylinder(d=corner_round, 2*thickness_phone, center=true);
-        translate([-30/2+corner_round/2, -30/2+corner_round/2, 0])
-            cylinder(d=corner_round, 2*thickness_phone, center=true);
-        translate([30/2-corner_round/2, 30/2-corner_round/2, 0])
-            cylinder(d=corner_round, 2*thickness_phone, center=true);
-        translate([-30/2+corner_round/2, 30/2-corner_round/2, 0])
-            cylinder(d=corner_round, 2*thickness_phone, center=true);
+        translate([w_grip/2-corner_round/2, -w_grip/2+corner_round/2, 0])
+        cylinder(d=corner_round, 2*thickness_phone, center=true);
+        translate([-w_grip/2+corner_round/2, -w_grip/2+corner_round/2, 0])
+        cylinder(d=corner_round, 2*thickness_phone, center=true);
+        translate([w_grip/2-corner_round/2, w_grip/2-corner_round/2, 0])
+        cylinder(d=corner_round, 2*thickness_phone, center=true);
+        translate([-w_grip/2+corner_round/2, w_grip/2-corner_round/2, 0])
+        cylinder(d=corner_round, 2*thickness_phone, center=true);
     }
 }
 
