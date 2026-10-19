@@ -4,6 +4,12 @@
 
 ![commonMD](build_holder_phone.png)
 
+
+
+
+
+
+
 ![commonMD](derzhatel.png)
 
 #Ссылки
