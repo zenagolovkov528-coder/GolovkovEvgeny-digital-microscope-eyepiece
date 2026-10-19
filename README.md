@@ -4,6 +4,8 @@
 
 ![commonMD](build_holder_phone.png)
 
+![commonMD](derzhatel.png)
+
 #Ссылки
 
 1 [Universal Phone Microscope Adapter] (https://www.thingiverse.com/thing:431168) проект в сервисе thingiverce
