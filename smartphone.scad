@@ -1,4 +1,4 @@
-echo("Работа Евгений Головков!");
+echo("Работа Павла Поздеева");
 len_phone = 145;
 width_phone = 56;
 thickness_phone = 8;

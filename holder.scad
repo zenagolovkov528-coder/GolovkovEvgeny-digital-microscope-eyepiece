@@ -8,13 +8,21 @@ thickness_holder = 4;
 append = 15;
 w_grip = 30;
 
-// holder_set();
+//holder_base();
+//holder_set();
 // horizontal_block(20);
 // vertical_block(len_phone);
+//grip();
+test_print_holder();
+
+module test_print_holder() {
+translate([0, -20, 6])
 grip();
+horizontal_block(len_block=width_phone, offset_vertical=10);
+}
 
 module grip(){
-    difference(){
+        difference(){
         grip_base();
 
         color("red")
@@ -40,9 +48,31 @@ module grip_base() {
 }
 
 module holder_set() {
+    
+    holder_base();
+    
+    translate([0, -len_phone/2, thickness_phone+thickness_holder/2+1])
+    rotate([0, 180, 0])
+    grip();
+    
+    translate([0, len_phone/2, thickness_phone+thickness_holder/2])
+    rotate([0, 180, 180])
+    grip();
+    
+    translate([width_phone/2, 10, thickness_phone+thickness_holder/2])
+    rotate([0, 180, 90])
+    grip();
+    
+    translate([-width_phone/2, 10, thickness_phone+thickness_holder/2])
+    rotate([0, 180, -90])
+    grip();
+    
+}
+
+module holder_base() {
     horizontal_block(len_block=width_phone, offset_vertical=10);
     vertical_block(len_block=len_phone);
-}
+    }
 
 module vertical_block(len_block) {
     len_block = len_block + append;
